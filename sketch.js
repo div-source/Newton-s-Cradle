@@ -1,10 +1,10 @@
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
-const body = Matter.Body;
-const Render= Matter.Render;
+const Body = Matter.Body;
 const Constraint = Matter.Constraint;
-
+var bob1,bob2,bob3,bob4,bob5;
+var ground;
 
 function setup() {
 	createCanvas(800, 400);
@@ -19,12 +19,13 @@ bob3=new Bob(400,350,50);
 bob4=new Bob(450,350,50);
 bob5=new Bob(500,350,50);
 
-  ground1 = new Ground(400,100,300,40);
-  rope1= new Rope(bob1.body,ground1.body,-50*2,0);
-  rope2= new Rope(bob2.body,ground1.body,-25*2,0);
-  rope3= new Rope(bob3.body,ground1.body,-0*2,0);
-  rope4= new Rope(bob4.body,ground1.body,25*2,0);
-  rope5= new Rope(bob5.body,ground1.body,50*2,0);
+  ground = new Ground(400,100,300,40);
+
+  rope1= new Rope(bob1.body,ground.body,-50*2,0);
+  rope2= new Rope(bob2.body,ground.body,-25*2,0);
+  rope3= new Rope(bob3.body,ground.body,-0*2,0);
+  rope4= new Rope(bob4.body,ground.body,25*2,0);
+  rope5= new Rope(bob5.body,ground.body,50*2,0);
 
 	Engine.run(engine);
   
@@ -32,7 +33,7 @@ bob5=new Bob(500,350,50);
 
 
 function draw() {
-  background(100);
+  background("azure");
 
   rectMode(CENTER);
   Engine.update(engine);
@@ -42,14 +43,13 @@ function draw() {
   bob3.display();
   bob4.display();
   bob5.display();
-  ground1.display();
+  ground.display();
   rope1.display();
   rope2.display();
   rope3.display();
   rope4.display();
   rope5.display();
 
-  keyPressed();
   drawSprites ();
 }
 
